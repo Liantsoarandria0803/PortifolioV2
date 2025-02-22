@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ExternalLink, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, Download } from 'lucide-react';
 import Header from './components/Header';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
