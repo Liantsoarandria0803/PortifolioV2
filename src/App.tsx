@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { TypeAnimation } from "react-type-animation";
 import { Github, Linkedin, Mail, Download } from 'lucide-react';
 import Header from './components/Header';
 import Projects from './components/Projects';
@@ -27,7 +28,16 @@ function App() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Hi, I'm Liantsoa
+                <TypeAnimation
+                sequence={[
+                  "Hello!", 1000,
+                  "I'm Liantsoa", 1000
+                ]}
+                speed={50}
+                repeat={Infinity}
+                >
+                </TypeAnimation>
+                
               </motion.h1>
               <motion.p 
                 className="text-xl text-gray-300 mb-8"
@@ -35,7 +45,7 @@ function App() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                Artificial intelligence and Machine learning enthusiast , Fullstack web and mobile developer,game developer.
+                Artificial intelligence and Machine learning enthusiast , Fullstack web and mobile developer,game developer enthusiast.
               </motion.p>
               <motion.div 
                 className="flex gap-4"
@@ -61,7 +71,7 @@ function App() {
                 <a href="https://github.com/Liantsoarandria0803" className="text-gray-400 hover:text-white transition-colors">
                   <Github size={24} />
                 </a>
-                <a href="https://linkedin.com/in/yourusername" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://linkedin.com/" className="text-gray-400 hover:text-white transition-colors">
                   <Linkedin size={24} />
                 </a>
               </motion.div>
@@ -75,7 +85,7 @@ function App() {
               <img 
                 src="/sariko.png" 
                 alt="Profile" 
-                className="rounded-2xl shadow-2xl"
+                className="rounded-2xl w-55"
               />
             </motion.div>
           </motion.div>

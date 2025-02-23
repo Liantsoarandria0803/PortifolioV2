@@ -63,9 +63,9 @@ function Header() {
               <MobileNavLink href="#skills" onClick={() => setIsMobileMenuOpen(false)}>
                 Skills
               </MobileNavLink>
-                <MobileNavLink href="#certification" onClick={() => setIsMobileMenuOpen(false)}>
-                    Certification
-                </MobileNavLink>
+              <MobileNavLink href="#certification" onClick={() => setIsMobileMenuOpen(false)}>
+                Certification
+              </MobileNavLink>
               <MobileNavLink href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
                 Contact
               </MobileNavLink>

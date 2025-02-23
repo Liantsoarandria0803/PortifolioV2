@@ -6,13 +6,13 @@ const projects = [
         title: "FACIAL STRESS DETECTION",
         description: "This project focuses on developing a Convolutional Neural Network (CNN) to classify facial images into 'stress' and 'no stress' categories. The model is trained on a dataset of facial images and achieves an accuracy of 88.52%.",
         image: "/desktopfacial.png",
-        technologies: ["CNN", "Deep Learning"],
+        technologies: ["CNN", "Deep Learning","FAstAPI"],
         githubLink: "https://github.com/Liantsoarandria0803/Facial-Stress-Recognition",
         liveLink: ""
     },
     {
-        title: "BIBLE VERSE FINDER",
-        description: "A mobile application that allows users to search for Bible verses based on keywords or phrases. The application retrieves relevant verses from the Bible and displays them to the user, providing a convenient way to explore and reference scriptural passages.",
+        title: "BIBLE FOR YOU",
+        description: "A mobile application that allows users to search all texts that the want to read by Bible verses.",
         image: "/bible.jpg",
         technologies: ["React Native", "Firebase"],
         githubLink: "https://github.com/Liantsoarandria0803/Bible-verse-finder",
@@ -30,7 +30,7 @@ const projects = [
         title: "BOOK SYSTEM RECOMMENDATION",
         description: "A book recommendation system is designed to assist readers in discovering books that align with their interests and preferences. These systems analyze various data points to provide personalized suggestions, enhancing the user's reading experience.",
         image: "/book.png",
-        technologies: ["Machine Learning", "Python"],
+        technologies: ["Machine Learning", "Python","Cosinus simularity(MATHS)"],
         githubLink: "https://github.com/Liantsoarandria0803/Books-system-recommendation",
         liveLink: ""
     },
@@ -46,7 +46,7 @@ const projects = [
         title: "KAJY CARDS",
         description: "A strategy or card-based game, potentially inspired by classic collectible or trading card games (TCG), similar to games like Magic: The Gathering or Hearthstone. The game may involve different cards with unique attributes like attack power, health points, and special abilities.",
         image: "/kajy.jpg",
-        technologies: ["Game Development", "Unity"],
+        technologies: ["Game Development", "GODOT","GDscript"],
         githubLink: "https://github.com/SMART-KAJY-AlgoGames/KAJY-CARDS",
         liveLink: ""
     },
@@ -62,7 +62,7 @@ const projects = [
         title: "HAND SIGN LANGUAGE",
         description: "The HAND SIGN LANGUAGE project is a machine learning application designed to recognize hand sign language gestures using Convolutional Neural Networks (CNNs). By leveraging the Sign Language MNIST dataset, this program trains a model to classify different sign gestures into corresponding letters or numbers. The model is highly accurate and can be deployed in real-world applications to facilitate communication between sign language users and non-signers.",
         image: "/images2.png",
-        technologies: ["CNN", "Deep Learning"],
+        technologies: ["CNN", "Deep Learning","FASTAPI"],
         githubLink: "https://github.com/Liantsoarandria0803/Sign-language-MNIST",
         liveLink: ""
     },
@@ -78,7 +78,7 @@ const projects = [
         title: "HEART DISEASE DIAGNOSTIC",
         description: "A web application that diagnoses heart disease in an individual. This is powered by the RandriaMLP engine.",
         image: "/Screenshot from 2024-12-26 09-55-51.png",
-        technologies: ["PHP", "Python"],
+        technologies: ["PHP", "Python","MAchine Learning"],
         githubLink: "https://github.com/Liantsoarandria0803/HEART-DISEASE-DIAGNOSTIC",
         liveLink: ""
     },
@@ -86,7 +86,7 @@ const projects = [
         title: "MLP BY RANDRIA",
         description: "A multilayer perceptron (MLP) is a type of artificial neural network composed of multiple layers of neurons. The neurons in an MLP typically use nonlinear activation functions, allowing the network to learn complex patterns in the data. This is an ANN model I created that can classify 2 classes (0 or 1).",
         image: "deep.png",
-        technologies: ["Python", "Neural Networks"],
+        technologies: ["Python"],
         githubLink: "https://github.com/Liantsoarandria0803/MultiLayersPerceptron",
         liveLink: ""
     },
@@ -102,7 +102,7 @@ const projects = [
         title: "RAIN PREDICTION",
         description: "A machine learning algorithm which can predict raining in function of historical data (Temperature, Pressure, Humidity, Wind's Velocity, Cloud covering).",
         image: "Screenshot from 2025-01-03 11-33-47.png",
-        technologies: ["Machine Learning", "Python"],
+        technologies: ["Machine Learning", "Python","FAstAPI"],
         githubLink: "https://github.com/Liantsoarandria0803/WeatherForecast",
         liveLink: ""
     },
@@ -110,7 +110,7 @@ const projects = [
         title: "Hanotan-e",
         description: "This application serves as an online forum platform where users can discuss various topics, share knowledge, ask questions, and provide answers.",
         image: "/Screenshot from 2024-12-26 10-05-46.png",
-        technologies: ["PHP", "MySQL"],
+        technologies: ["HTML","CSS","Javascript","PHP", "MySQL"],
         githubLink: "https://github.com/Liantsoarandria0803/Hanontan-e",
         liveLink: ""
     },
@@ -134,7 +134,7 @@ const projects = [
         title: "RANDRIA'SCRIPT",
         description: "An open-source software that encrypts and decrypts messages using its own type of encryption (symmetric encryption).",
         image: "/images.jpeg",
-        technologies: ["C"],
+        technologies: ["C","Makefile"],
         githubLink: "https://github.com/Liantsoarandria0803/Randria-scrypt",
         liveLink: ""
     },
@@ -228,13 +228,15 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => (
           <Github size={20} />
           Code
         </a>
-        <a 
-          href={project.liveLink}
-          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-        >
-          <ExternalLink size={20} />
-          Live Demo
-        </a>
+        {project.liveLink && (
+          <a 
+            href={project.liveLink}
+            className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+          >
+            <ExternalLink size={20} />
+            Live Demo
+          </a>
+        )}
       </div>
     </div>
   </motion.div>

@@ -16,7 +16,11 @@ const skills = [
     {
         category: "Tools",
         items: ["Git", "Github", "Gitlab", "Figma", "Mathematics", "Kaggle", "AnalyseSI","Godot","Unity"]
-    }
+    },
+    {
+      category: "Other",
+      items: ["Project Management", "Communication skills"]
+  }
 ];
 
 function Skills() {
