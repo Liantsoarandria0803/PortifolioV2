@@ -1,14 +1,24 @@
 import { motion } from 'framer-motion';
+import { desc } from 'framer-motion/client';
 import { ExternalLink, Github } from 'lucide-react';
+import { useState } from 'react';
 
 const projects = [
+    {
+      title: "FRIDAY",
+      description: "A virtual assistant that can help you with your daily tasks, such as setting reminders,giving you some news, informations ,... and answering questions.",
+      technologies: ["Python", "NLP", "Deep Learning","Transformers","Large Language Models","Gradio"],
+      image:"FRIDAY.png",
+      githubLink:"#",
+      liveLink: "https://huggingface.co/spaces/Liantsoaxx08/Friday"
+    },
     {
         title: "FACIAL STRESS DETECTION",
         description: "This project focuses on developing a Convolutional Neural Network (CNN) to classify facial images into 'stress' and 'no stress' categories. The model is trained on a dataset of facial images and achieves an accuracy of 88.52%.",
         image: "/desktopfacial.png",
-        technologies: ["CNN", "Deep Learning","FAstAPI"],
+        technologies: ["CNN", "Deep Learning","FAstAPI","Hugging Face"],
         githubLink: "https://github.com/Liantsoarandria0803/Facial-Stress-Recognition",
-        liveLink: ""
+        liveLink: "https://huggingface.co/spaces/Liantsoaxx08/Stress-Facial-Recognitipon"
     },
     {
         title: "BIBLE FOR YOU",
@@ -24,7 +34,7 @@ const projects = [
         image: "/FakeNews.png",
         technologies: ["NLP", "Deep Learning"],
         githubLink: "https://github.com/Liantsoarandria0803/Fake-News-Detection",
-        liveLink: ""
+        liveLink: "https://huggingface.co/spaces/Liantsoaxx08/Sign-Language-MNIST"
     },
     {
         title: "BOOK SYSTEM RECOMMENDATION",
@@ -123,27 +133,11 @@ const projects = [
         liveLink: ""
     },
     {
-        title: "SLOT MACHINE",
-        description: "A simple web application or mini online game that follows the same principle as a real-life slot machine.",
-        image: "/Screenshot from 2024-12-26 09-58-35.png",
-        technologies: ["HTML", "CSS", "JavaScript"],
-        githubLink: "https://liantsoarandria0803.github.io/MachineAsous/",
-        liveLink: ""
-    },
-    {
         title: "RANDRIA'SCRIPT",
         description: "An open-source software that encrypts and decrypts messages using its own type of encryption (symmetric encryption).",
         image: "/images.jpeg",
         technologies: ["C","Makefile"],
         githubLink: "https://github.com/Liantsoarandria0803/Randria-scrypt",
-        liveLink: ""
-    },
-    {
-        title: "APP AGE CALCULATOR",
-        description: "A simple web application that calculates the total time (Y/M/D) you have survived on Earth.",
-        image: "",
-        technologies: ["HTML", "CSS", "JavaScript"],
-        githubLink: "https://liantsoarandria0803.github.io/AGE_CALCULATOR/",
         liveLink: ""
     },
     {
@@ -171,10 +165,13 @@ const projects = [
         liveLink: ""
     }
 ];
-
 function Projects() {
+  const [showAll, setShowAll] = useState(false);
+
+  const displayedProjects = showAll ? projects : projects.slice(0, 3);
+
   return (
-    <section id="projects" className="py-20 bg-gray-800">
+    <section id="projects" className="pt-32 pb-16 px-4 md:px-8 bg-gradient-to-r from-[#006466] via-[#065a60] via-[#0b525b] via-[#144552] via-[#1b3a4b] via-[#212f45] via-[#272640] via-[#312244] via-[#3e1f47] to-[#4d194d]">
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -184,62 +181,78 @@ function Projects() {
         >
           <h2 className="text-4xl font-bold text-center mb-12 text-white">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+            {displayedProjects.map((project, index) => (
               <ProjectCard key={index} project={project} index={index} />
             ))}
           </div>
+          {!showAll && (
+          <div className="text-center mt-8">
+            <motion.button
+            whileHover={{ scale: 1.05 }} // Added hover scale effect
+            onClick={() => setShowAll(true)}
+            className="bg-purple-600 text-white px-8 py-3 rounded-full hover:bg-purple-500 transition-colors font-bold uppercase focus:ring-2 focus:ring-purple-300" // Enhanced styling
+            >
+             See More
+            </motion.button>
+          </div>
+)}
         </motion.div>
       </div>
     </section>
   );
 }
-
-const ProjectCard = ({ project, index }: { project: any; index: number }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6, delay: index * 0.2 }}
-    className="bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-gray-700"
-  >
-    <img 
-      src={project.image} 
-      alt={project.title}
-      className="w-full h-48 object-cover"
-    />
-    <div className="p-6">
-      <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
-      <p className="text-gray-400 mb-4">{project.description}</p>
-      <div className="flex flex-wrap gap-2 mb-4">
-        {project.technologies.map((tech: string, i: number) => (
-          <span 
-            key={i}
-            className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-      <div className="flex gap-4">
-        <a 
-          href={project.githubLink}
-          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-        >
-          <Github size={20} />
-          Code
-        </a>
-        {project.liveLink && (
+const ProjectCard = ({ project, index }: { project: any; index: number }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      whileHover={{ scale: 1.02 }} // Added hover scale effect
+      transition={{ duration: 0.6, delay: index * 0.2 }}
+      className={`bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-[#4d194d]`} // Unified bg and themed border
+    >
+      {project.image && ( // Conditional image rendering
+        <img 
+          src={project.image} 
+          alt={project.title}
+          className="w-full h-48 object-cover"
+        />
+      )}
+      <div className="p-6">
+        <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
+        <p className="text-gray-300 mb-4">{project.description}</p> {/* Improved contrast */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.technologies.map((tech: string, i: number) => (
+            <span 
+              key={i}
+              className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+        <div className="flex gap-4">
           <a 
-            href={project.liveLink}
+            href={project.githubLink}
             className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
           >
-            <ExternalLink size={20} />
-            Live Demo
+            <Github size={20} />
+            Code
           </a>
-        )}
+          {project.liveLink && (
+            <a 
+              href={project.liveLink}
+              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+            >
+              <ExternalLink size={20} />
+              Live Demo
+            </a>
+          )}
+        </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
+
 
 export default Projects;

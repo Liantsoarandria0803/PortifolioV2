@@ -17,9 +17,7 @@ function Header() {
 
   return (
     <motion.header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-gray-900/95 backdrop-blur-sm shadow-lg shadow-gray-900/20 py-4' : 'bg-transparent py-6'
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 py-6 ${isScrolled ? 'bg-gray-900 bg-opacity-70 backdrop-blur-md' : 'bg-transparent'}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -31,7 +29,6 @@ function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8">
-          <NavLink href="#about">About</NavLink>
           <NavLink href="#projects">Projects</NavLink>
           <NavLink href="#skills">Skills</NavLink>
           <NavLink href="#certification">Certification</NavLink>
