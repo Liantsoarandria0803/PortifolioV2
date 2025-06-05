@@ -27,7 +27,7 @@ function Contact() {
                         transition={{ duration: 0.6 }}
                         className="bg-gray-900 rounded-xl p-8 shadow-lg border border-gray-700"
                     >
-                        <h3 className="text-2xl font-bold mb-6 text-white">Contact Information</h3>
+                        <h3 className="text-xl font-bold mb-4 text-white">Contact Information</h3>
                         <div className="space-y-4">
                             <div className="flex items-center gap-4">
                                 <Mail className="text-blue-500" size={24} />
@@ -104,7 +104,7 @@ function Contact() {
                         </div>
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                            className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 hover:shadow-lg transform hover:-translate-y-px transition-all duration-200 ease-in-out"
                         >
                             Send Message
                         </button>

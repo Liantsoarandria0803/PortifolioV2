@@ -170,7 +170,7 @@ function Projects() {
   const displayedProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
-    <section id="projects" className="pt-32 pb-16 px-4 md:px-8 bg-gradient-to-r from-[#006466] via-[#065a60] via-[#0b525b] via-[#144552] via-[#1b3a4b] via-[#212f45] via-[#272640] via-[#312244] via-[#3e1f47] to-[#4d194d]">
+    <section id="projects" className="py-20 bg-gradient-to-r from-[#006466] via-[#065a60] via-[#0b525b] via-[#144552] via-[#1b3a4b] via-[#212f45] via-[#272640] via-[#312244] via-[#3e1f47] to-[#4d194d]">
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -189,7 +189,7 @@ function Projects() {
             <motion.button
             whileHover={{ scale: 1.05 }} // Added hover scale effect
             onClick={() => setShowAll(true)}
-            className="bg-purple-600 text-white px-8 py-3 rounded-full hover:bg-purple-500 transition-colors font-bold uppercase focus:ring-2 focus:ring-purple-300" // Enhanced styling
+            className="bg-purple-600 text-white px-8 py-3 rounded-full hover:bg-purple-500 transition-colors duration-200 ease-in-out font-bold uppercase focus:ring-2 focus:ring-purple-300" // Enhanced styling
             >
              See More
             </motion.button>
@@ -224,7 +224,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
           {project.technologies.map((tech: string, i: number) => (
             <span 
               key={i}
-              className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700"
+                  className="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm border border-gray-600"
             >
               {tech}
             </span>
@@ -233,7 +233,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
         <div className="flex gap-4">
           <a 
             href={project.githubLink}
-            className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+            className="flex items-center gap-2 text-gray-400 hover:text-white hover:scale-105 transform transition-all duration-200 ease-in-out"
           >
             <Github size={20} />
             Code
@@ -241,7 +241,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
           {project.liveLink && (
             <a 
               href={project.liveLink}
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+              className="flex items-center gap-2 text-gray-400 hover:text-white hover:scale-105 transform transition-all duration-200 ease-in-out"
             >
               <ExternalLink size={20} />
               Live Demo
