@@ -68,7 +68,7 @@ const SkillCard = ({ skillSet, index }: { skillSet: SkillSet; index: number }) =
         <motion.span
           key={i}
           whileHover={{ scale: 1.05 }} // Animation de survol pour les badges
-          className="bg-gray-900 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700"
+          className="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm border border-gray-600"
         >
           {skill}
         </motion.span>

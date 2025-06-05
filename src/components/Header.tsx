@@ -77,7 +77,7 @@ function Header() {
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a
     href={href}
-    className="text-gray-300 hover:text-white transition-colors"
+    className="text-gray-300 hover:text-white transition-colors duration-200 ease-in-out"
   >
     {children}
   </a>
@@ -94,7 +94,7 @@ const MobileNavLink = ({
 }) => (
   <a
     href={href}
-    className="block py-2 text-gray-300 hover:text-white transition-colors"
+    className="block py-2 text-gray-300 hover:text-white transition-colors duration-200 ease-in-out"
     onClick={onClick}
   >
     {children}
