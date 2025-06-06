@@ -6,7 +6,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Certification from './components/Certification';
 import Contact from './components/Contact';
-
+import About from './components/about';
 function App() {
   return (
     <div className="min-h-screen bg-gray-900">
@@ -57,7 +57,7 @@ function App() {
                 <Mail size={20} />
                 Contact Me
               </a>
-              <a href="/resume.pdf" className="border border-gray-600 text-gray-300 px-6 py-3 rounded-lg hover:bg-gray-800 hover:shadow-lg transform hover:-translate-y-px transition-all duration-200 ease-in-out flex items-center gap-2">
+              <a href="/resume1.pdf" className="border border-gray-600 text-gray-300 px-6 py-3 rounded-lg hover:bg-gray-800 hover:shadow-lg transform hover:-translate-y-px transition-all duration-200 ease-in-out flex items-center gap-2">
                 <Download size={20} />
                 Resume
               </a>
@@ -85,12 +85,13 @@ function App() {
               <img 
               src="/Lian.png" 
               alt="Profile" 
-              className="rounded-2xl w-full max-w-xs sm:max-w-sm md:max-w-md"
+              className="rounded-2xl w-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px]"
               />
             </motion.div>
             </motion.div>
         </div>
       </section>
+      <About />
       <Projects />
       <Skills />
       <Certification />

@@ -1,8 +1,18 @@
 import { motion } from 'framer-motion';
+import { desc } from 'framer-motion/client';
 import { ExternalLink, Github } from 'lucide-react';
 import { useState } from 'react';
 
 const projects = [
+  {
+    title: "PotatoGuard",
+    description: "A web application that helps users to protect their potato plants from pests and diseases by providing information on how to identify and treat them.",
+   
+    technologies: ["React", "Tailwind CSS","FastAPI", "Tensorflow", "Docker","deep learning"],
+    image: "/potatoGuard.png",
+    githubLink:"https://github.com/Liantsoarandria0803/health-ai-mobile-guide",
+    liveLink: "https://potatoguardrandriaindustries.netlify.app/"
+  },
     {
       title: "FRIDAY",
       description: "A virtual assistant that can help you with your daily tasks, such as setting reminders,giving you some news, informations ,... and answering questions.",
@@ -33,7 +43,7 @@ const projects = [
         image: "/FakeNews.png",
         technologies: ["NLP", "Deep Learning"],
         githubLink: "https://github.com/Liantsoarandria0803/Fake-News-Detection",
-        liveLink: "https://huggingface.co/spaces/Liantsoaxx08/Sign-Language-MNIST"
+        
     },
     {
         title: "BOOK SYSTEM RECOMMENDATION",
@@ -73,7 +83,7 @@ const projects = [
         image: "/images2.png",
         technologies: ["CNN", "Deep Learning","FASTAPI"],
         githubLink: "https://github.com/Liantsoarandria0803/Sign-language-MNIST",
-        liveLink: ""
+        liveLink: "https://huggingface.co/spaces/Liantsoaxx08/Sign-Language-MNIST"
     },
     {
         title: "BREAST CANCER DIAGNOSTIC",
@@ -203,51 +213,51 @@ function Projects() {
 const ProjectCard = ({ project, index }: { project: any; index: number }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 20, scale: 0.9 }} // Added initial scale transformation
+      whileInView={{ opacity: 1, y: 0, scale: 1 }} // Added scale transformation on view
       viewport={{ once: true }}
-      whileHover={{ scale: 1.02 }} // Added hover scale effect
+      whileHover={{ scale: 1.05 }} // Enhanced hover scale effect
       transition={{ duration: 0.6, delay: index * 0.2 }}
       className={`bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-[#4d194d]`} // Unified bg and themed border
     >
       {project.image && ( // Conditional image rendering
-        <img 
-          src={project.image} 
-          alt={project.title}
-          className="w-full h-48 object-cover"
-        />
+      <img 
+        src={project.image} 
+        alt={project.title}
+        className="w-full h-48 object-cover"
+      />
       )}
       <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
-        <p className="text-gray-300 mb-4">{project.description}</p> {/* Improved contrast */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.technologies.map((tech: string, i: number) => (
-            <span 
-              key={i}
-                  className="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm border border-gray-600"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-        <div className="flex gap-4">
-          <a 
-            href={project.githubLink}
-            className="flex items-center gap-2 text-gray-400 hover:text-white hover:scale-105 transform transition-all duration-200 ease-in-out"
-          >
-            <Github size={20} />
-            Code
-          </a>
-          {project.liveLink && (
-            <a 
-              href={project.liveLink}
-              className="flex items-center gap-2 text-gray-400 hover:text-white hover:scale-105 transform transition-all duration-200 ease-in-out"
-            >
-              <ExternalLink size={20} />
-              Live Demo
-            </a>
-          )}
-        </div>
+      <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
+      <p className="text-gray-300 mb-4">{project.description}</p> {/* Improved contrast */}
+      <div className="flex flex-wrap gap-2 mb-4">
+        {project.technologies.map((tech: string, i: number) => (
+        <span 
+          key={i}
+          className="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm border border-gray-600"
+        >
+          {tech}
+        </span>
+        ))}
+      </div>
+      <div className="flex gap-4">
+        <a 
+        href={project.githubLink}
+        className="flex items-center gap-2 text-gray-400 hover:text-white hover:scale-105 transform transition-all duration-200 ease-in-out"
+        >
+        <Github size={20} />
+        Code
+        </a>
+        {project.liveLink && (
+        <a 
+          href={project.liveLink}
+          className="flex items-center gap-2 text-gray-400 hover:text-white hover:scale-105 transform transition-all duration-200 ease-in-out"
+        >
+          <ExternalLink size={20} />
+          Live Demo
+        </a>
+        )}
+      </div>
       </div>
     </motion.div>
   );
