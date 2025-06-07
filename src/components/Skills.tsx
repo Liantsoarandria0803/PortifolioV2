@@ -7,11 +7,11 @@ const skills = [
   },
   {
     category: "Databases",
-    items: ["MySQL", "PostgreSQL", "SQLITE", "MCD", "MLD"]
+    items: ["MySQL", "PostgreSQL", "SQLITE","merise", "MongoDB", "Redis", "Firebase"]
   },
   {
     category: "Stacks & Libraries",
-    items: ["React", "React Native", "NextJs", "Django", "Scikit-Learn", "Tensorflow", "Pytorch", "Prisma", "NodeJs", "NestJs", "Expo"]
+    items: ["React","VueJs", "React Native", "NextJs", "Django", "Scikit-Learn", "Tensorflow", "Pytorch","FLAX and JAX", "Pandas and Numpy","Prisma", "NodeJs", "NestJs", "Expo"]
   },
   {
     category: "Tools",
@@ -19,7 +19,7 @@ const skills = [
   },
   {
     category: "Other",
-    items: ["Project Management","Communication skills"]
+    items: ["Project Management","Communication skills", "Problem Solving", "Teamwork", "Agile Methodologies", "Machine Learning", "Artificial Intelligence", "Game Development"]
   }
 ];
 
